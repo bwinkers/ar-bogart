@@ -1,2 +1,2 @@
 # ar-bogart
-ActiveRules built om Bogart / Node.js
+ActiveRules built omn Bogart / Node.js
