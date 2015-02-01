@@ -1,7 +1,7 @@
 var bogart = require('bogart') 
    , router = bogart.router() 
    , path   = require('path') 
-   , mysql  = require('mysql') 
+   , mongoose  = require('mongoose')
    , util   = require('./lib/util').Util 
    , settings = require('./config/settings').Settings 
    , fs = require('fs')
@@ -22,16 +22,17 @@ app.use(function (nextApp) {
 }); 
  
 require('./lib/controllers')(router, viewEngine, connection); 
-//require('./lib/accessors')  uncomment this line if you want to use accessors 
- 
+
 app.use(bogart.batteries); //Life is better with batteries 
  
 app.use(router); // Our router 
  
 var server = app.start({ port:1337 });
 
+// Add a socket.io listener
 io = io.listen(server);
 
+// Log connections while we finish wiring
 io.on('connection', function (socket) {
     console.log('connected');
 });
