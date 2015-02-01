@@ -9,7 +9,7 @@ var bogart = require('bogart')
 var dbSettings = require('./config/settings').Settings.db; 
 var connection = mysql.createConnection(dbSettings); 
  
-var viewEngine = bogart.viewEngine('mustache', path.join(__dirname, 'views')); 
+var viewEngine = bogart.viewEngine('mustache', path.join(__dirname, 'lib/views')); 
  
 var app = bogart.app(); 
  
