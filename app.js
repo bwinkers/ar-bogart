@@ -4,7 +4,8 @@ var bogart = require('bogart')
    , mysql  = require('mysql') 
    , util   = require('./lib/util').Util 
    , settings = require('./config/settings').Settings 
-   , fs = require('fs');
+   , fs = require('fs')
+   , io = require('socket.io');
 
 var dbSettings = require('./config/settings').Settings.db; 
 var connection = mysql.createConnection(dbSettings); 
@@ -28,3 +29,9 @@ app.use(bogart.batteries); //Life is better with batteries
 app.use(router); // Our router 
  
 var server = app.start({ port:1337 });
+
+io = io.listen(server);
+
+io.on('connection', function (socket) {
+    console.log('connected');
+});
