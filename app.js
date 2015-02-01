@@ -7,8 +7,8 @@ var bogart = require('bogart')
    , fs = require('fs')
    , io = require('socket.io');
 
-var dbSettings = require('./config/settings').Settings.db; 
-var connection = mysql.createConnection(dbSettings); 
+//var dbSettings = require('./config/settings').Settings.db;
+//var connection = mysql.createConnection(dbSettings);
  
 var viewEngine = bogart.viewEngine('mustache', path.join(__dirname, 'lib/views')); 
  
@@ -21,7 +21,7 @@ app.use(function (nextApp) {
   } 
 }); 
  
-require('./lib/controllers')(router, viewEngine, connection); 
+require('./lib/controllers')(router, viewEngine);
 
 app.use(bogart.batteries); //Life is better with batteries 
  
