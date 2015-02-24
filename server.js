@@ -5,11 +5,10 @@ var bogart = require('bogart')
    , util   = require('./lib/util').Util 
    , settings = require('./config/settings').Settings 
    , fs = require('fs')
-   , io = require('socket.io');
+   , io = require('socket.io')
+   , ar = require('activerules')
+   ;
 
-//var dbSettings = require('./config/settings').Settings.db;
-//var connection = mysql.createConnection(dbSettings);
- 
 var viewEngine = bogart.viewEngine('mustache', path.join(__dirname, 'lib/views')); 
  
 var app = bogart.app(); 
@@ -23,7 +22,9 @@ app.use(function (nextApp) {
  
 require('./lib/controllers')(router, viewEngine);
 
-app.use(bogart.batteries); //Life is better with batteries 
+app.use(bogart.batteries); // Life is better with batteries 
+
+app.use(ar); // And even better with ActiveRules
  
 app.use(router); // Our router 
  
