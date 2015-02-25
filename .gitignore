@@ -28,3 +28,12 @@ node_modules
 .lock-wscript
 /nbproject/project.xml
 /nbproject/project.properties
+/.idea/workspace.xml
+/.idea/encodings.xml
+/.idea/modules.xml
+/.idea/jsLibraryMappings.xml
+/.idea/misc.xml
+/.idea/libraries/ar_bogart_node_modules.xml
+/.idea/ar-bogart.iml
+/.idea/scopes/scope_settings.xml
+/.idea/vcs.xml
