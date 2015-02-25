@@ -1,12 +1,14 @@
+/**
+ * Define settings specific to this server
+ */
+
+// Define libraries needed
+var  path   = require('path');
+   
 exports.Settings = { 
-   db : { 
-     host     : 'localhost', 
-     database : 'db', //replace this with the name of your database 
-     user     : 'user', 
-     password : 'password', 
-     timezone : 'Z', 
-     multipleStatements: true, 
-     debug    : true  /* DEVELOPMENT ONLY */ 
-   }, 
-   fileUploadPath: 'uploads' 
+    ar: {
+      // Define the ActiveRules config root, default is a subdirectory relative to this file.
+      configDir: path.join(__dirname, 'activerules'),
+      fileUploadPath: 'uploads'
+    }
  }
